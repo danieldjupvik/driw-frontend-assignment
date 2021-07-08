@@ -30,7 +30,7 @@ const Cart = () => {
     );
   });
 
-  const deleteProductFromLocalStorage = (id) => {
+  const deleteFromCart = (id) => {
     const cartFromLocalStorage = JSON.parse(localStorage.getItem('cart'));
     const newProducts = cartFromLocalStorage.filter((product) => {
       return JSON.parse(product.id) !== id;
@@ -70,9 +70,7 @@ const Cart = () => {
                 >
                   {cartProduct.price} kr
                   <div
-                    onClick={() =>
-                      deleteProductFromLocalStorage(cartProduct.id)
-                    }
+                    onClick={() => deleteFromCart(cartProduct.id)}
                     style={{ cursor: 'pointer', marginLeft: '10px' }}
                   >
                     <i class='fas fa-times'></i>
